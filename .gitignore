@@ -1,1 +1,5 @@
 .metadata
+.recommenders
+map/src/main/resources/node_modules
+npm-debug.log
+RemoteSystemsTempFiles
