@@ -12,7 +12,7 @@ import com.sh.map.data.SFMoviesResponse;
 @Component
 public class SFMovieClient {
 
-	String serviceRoot = "http://localhost:6666/sfmovie";
+	String serviceRoot = "http://localhost:8000/sfmovie";
 	
 	RestTemplate rest = new RestTemplate();
 
