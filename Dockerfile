@@ -6,7 +6,7 @@ COPY /map/mvnw /map/
 COPY /map/build.sh /map/
 COPY /map/.mvn/ /map/.mvn/
 
-COPY /map-template/src /map/src
+COPY /src-template/ /map/src
 
 WORKDIR /map
 
