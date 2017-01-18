@@ -1,7 +1,5 @@
 package com.sh.map.restful;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sh.map.data.SFMovie;
 import com.sh.map.data.SFMoviesResponse;
+import com.sh.map.repository.MovieServiceDataAccess;
 import com.sh.map.repository.SFMovieRepository;
 import com.sh.map.repository.SFMovieTitleRepository;
 
@@ -25,6 +23,9 @@ public class SFMovieService{
 	@Autowired
 	SFMovieTitleRepository movieTitleRepo;
 	
+	@Autowired
+	MovieServiceDataAccess movieData;
+	
 	private static Logger logger = LoggerFactory.getLogger(SFMovieService.class);
 	
 	//This is used for UI lookup (containing match)
@@ -34,7 +35,7 @@ public class SFMovieService{
 		if (searchTerm == null || searchTerm.isEmpty()) {
 			return new SFMoviesResponse();
 		}
-		return new SFMoviesResponse(movieTitleRepo.findByTitleContainingIgnoreCase(searchTerm));
+		return new SFMoviesResponse(movieData.findByTitleContainingIgnoreCase(searchTerm));
 	}
 	
 	//This is used for finding all location from an title (exact match)
@@ -44,7 +45,6 @@ public class SFMovieService{
 		if (title == null || title.isEmpty()) {
 			return new SFMoviesResponse();
 		}
-		List<SFMovie> movies = movieRepo.findByTitleAndLatitudeNot(title,0);
-		return new SFMoviesResponse(movies);
+		return new SFMoviesResponse(movieData.findByTitle(title));
 	}
 }
