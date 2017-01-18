@@ -30,7 +30,7 @@ public class PreProcessCSV {
 			List<SFMovie> movies = SFMovieCSVUtil.readObjects(stream);
 			System.out.println("===============movies " + movies.size());
 			for (SFMovie m : movies) {
-				mapProcessor.GeoCodeFromGoogle(m);								
+				mapProcessor.GeoCodeFromGoogle(m);
 			}
 			File file = new File("Processed.csv");
 			SFMovieCSVUtil.writeCSV(movies, file);
