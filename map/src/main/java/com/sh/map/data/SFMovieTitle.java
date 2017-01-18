@@ -8,6 +8,9 @@ public class SFMovieTitle {
 	@Id
 	private String title;
 	
+	public SFMovieTitle() {
+	}
+	
 	public SFMovieTitle(String title) {
 		this.title = title;
 	}

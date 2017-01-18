@@ -37,7 +37,9 @@ public class DevConfiguration {
 			logger.info(moviesLoaded.size() + " entities loaded, saving to repo");
 			
 			for (SFMovie m : moviesLoaded) {
-				dataAccess.Save(m);
+				if (m.getLatitude() != 0 && m.getLongitude() != 0) {
+					dataAccess.Save(m);
+				}
 			}
 			
 			logger.info("Done saving");

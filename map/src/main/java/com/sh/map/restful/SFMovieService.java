@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sh.map.data.SFMoviesResponse;
+import com.sh.map.data.SFMoviesTitleResponse;
 import com.sh.map.repository.MovieServiceDataAccess;
 import com.sh.map.repository.SFMovieRepository;
 import com.sh.map.repository.SFMovieTitleRepository;
@@ -30,12 +31,12 @@ public class SFMovieService{
 	
 	//This is used for UI lookup (containing match)
 	@RequestMapping("/titles") 
-	public SFMoviesResponse findTitles(String searchTerm) {
+	public SFMoviesTitleResponse findTitles(String searchTerm) {
 		logger.info("/titles " + searchTerm);
 		if (searchTerm == null || searchTerm.isEmpty()) {
-			return new SFMoviesResponse();
+			return new SFMoviesTitleResponse();
 		}
-		return new SFMoviesResponse(movieData.findByTitleContainingIgnoreCase(searchTerm));
+		return new SFMoviesTitleResponse(movieData.findByTitleContainingIgnoreCase(searchTerm));
 	}
 	
 	//This is used for finding all location from an title (exact match)

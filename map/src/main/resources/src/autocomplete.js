@@ -12,6 +12,7 @@ const AutoComplete = React.createClass({
 	},
 	onChange (value) {
 		if (!value) {
+			this.updateOptions();
 			this.setState({
 				value: {},
 			});
@@ -31,20 +32,22 @@ const AutoComplete = React.createClass({
 			value: value,
 		});
 	},
-	getUsers (input) {
+	updateOptions (input) {
 		if (!input) {
+			console.log("options cleared")
 			return Promise.resolve({ options: [] });
 		}
 
 		return fetch(`http://localhost:8000/sfmovie/titles?searchTerm=${input}`)
 		.then((response) => response.json())
 		.then((json) => {
+			console.log("options updated")
 			return { options: json.movieLocations };
 		});
 	},
 	render () {
 		return (
-			<Select.Async multi={false} value={this.state.value} onChange={this.onChange} valueKey="title" labelKey="title" loadOptions={this.getUsers} backspaceRemoves={true} />
+			<Select.Async multi={false} value={this.state.value} onChange={this.onChange} valueKey="title" labelKey="title" loadOptions={this.updateOptions} backspaceRemoves={true} />
 		);
 	}
 });

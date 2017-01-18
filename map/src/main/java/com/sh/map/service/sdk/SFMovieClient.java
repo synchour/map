@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.sh.map.data.SFMoviesResponse;
+import com.sh.map.data.SFMoviesTitleResponse;
 
 @Component
 public class SFMovieClient {
@@ -16,14 +17,14 @@ public class SFMovieClient {
 	
 	RestTemplate rest = new RestTemplate();
 
-	public SFMoviesResponse autoCompleteSearch(String searchTerm) {
+	public SFMoviesTitleResponse autoCompleteSearch(String searchTerm) {
 		
 		URI targetUrl= UriComponentsBuilder.fromUriString(serviceRoot)
 			    .path("/titles")
 			    .queryParam("searchTerm", searchTerm)
 			    .build()
 			    .toUri();
-		return rest.getForObject(targetUrl, SFMoviesResponse.class);
+		return rest.getForObject(targetUrl, SFMoviesTitleResponse.class);
 	}
 	
 	public SFMoviesResponse listAllLocations(String title) {

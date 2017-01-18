@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class SFMoviesResponse {
-	private Collection movieLocations;
+	private Collection<SFMovie> movieLocations;
 
 	public SFMoviesResponse() {
-		this.movieLocations = new ArrayList();
+		this.movieLocations = new ArrayList<SFMovie>();
 	}
-	public SFMoviesResponse(Collection movieLocations) {
+	public SFMoviesResponse(Collection<SFMovie> movieLocations) {
 		if (movieLocations == null) {
-			this.movieLocations = new ArrayList();
+			this.movieLocations = new ArrayList<SFMovie>();
 		} else {
 			this.movieLocations = movieLocations;			
 		}
 	}
 	
-	public Collection getMovieLocations() {
+	public Collection<SFMovie> getMovieLocations() {
 		return movieLocations;
 	}
 
-	public void setMovieLocations(Collection movieLocations) {
+	public void setMovieLocations(Collection<SFMovie> movieLocations) {
 		this.movieLocations = movieLocations;
 	}
 }

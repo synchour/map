@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import uuid from 'uuid';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
-class TruckMap extends Component {
+class Map extends Component {
 
     handleClick(e) {
     }
@@ -60,4 +60,4 @@ const mapDispatchToProps = function(dispatch) {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TruckMap);
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
