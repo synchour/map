@@ -12,9 +12,9 @@ public interface SFMovieRepository extends CrudRepository<SFMovie, Long> {
 
 	List<SFMovie> findByTitleContainingIgnoreCase(String title);
 	
-	List<SFMovie> findByTitleContainingIgnoreCaseAndLatitudeNot(String title, double zero);
-
-	List<SFMovie> findDistinctSFMovieByTitleContainingIgnoreCase(String tileSearch);
+	List<SFMovie> findDistinctByTitleContainingIgnoreCase(String title);
+	
+	List<SFMovie> findByTitleAndLatitudeNot(String title, double zero);
 	
 	List<SFMovie> findByGeoLocationNear(Point location, Distance distance);
 }

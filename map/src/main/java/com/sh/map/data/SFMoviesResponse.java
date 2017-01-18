@@ -9,7 +9,7 @@ public class SFMoviesResponse {
 	public SFMoviesResponse() {
 		this.movieLocations = new ArrayList<SFMovie>();
 	}
-	public SFMoviesResponse(Collection<SFMovie> movieLocations) {
+	public SFMoviesResponse(Collection movieLocations) {
 		this.movieLocations = movieLocations;
 	}
 	
