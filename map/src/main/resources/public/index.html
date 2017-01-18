@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Map View</title>
+    <style>
+    .HolyGrail {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .HolyGrail-body {
+      display: flex;
+      flex: 1;
+      padding: 40px 10px 0;
+    }
+
+    .HolyGrail-content {
+      flex: 1;
+      padding: 0px 10px 0;
+    }
+
+    .HolyGrail-nav, .HolyGrail-ads {
+      /* 12em is the width of the columns */
+      flex: 0 0 10em;
+    }
+
+    .HolyGrail-nav {
+      /* put the nav on the left */
+      order: -1;
+    }
+
+    .search {
+      width: 400px
+    }
+    </style>
+    <link rel="stylesheet" href="js/bootstrap.css">
+    <link rel="stylesheet" href="js/bootstrap-theme.css">
+  </head>
+  <body class="HolyGrail">
+    <header>[Hidden Header]</header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Map View</a>
+      </div>
+
+    </nav>
+
+    <div class="HolyGrail-body">
+      <main class="HolyGrail-content">
+        <div style="order: 1;" id="actions">
+        </div>
+          <div class="input-group">
+            <div id="search" class="search"></div>
+          </div><!-- /input-group -->
+          <div id="models">
+        </div>
+        <div id="gmaps">
+        </div>
+      </main>
+  </div>
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    
+  </script>
+  </body>
+</html>
