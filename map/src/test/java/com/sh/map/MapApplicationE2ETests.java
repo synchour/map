@@ -8,13 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sh.map.data.SFMovieTitle;
 import com.sh.map.data.SFMoviesResponse;
-import com.sh.map.repository.SFMovieRepository;
-import com.sh.map.repository.SFMovieTitleRepository;
 import com.sh.map.service.sdk.SFMovieClient;
-
-import java.util.List;
 
 import org.junit.Assert;
 
@@ -22,7 +17,7 @@ import org.junit.Assert;
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("dev")
 public class MapApplicationE2ETests {
-
+	
 	@Autowired
 	SFMovieClient movieClient;
 	
@@ -53,20 +48,4 @@ public class MapApplicationE2ETests {
 		SFMoviesResponse response = movieClient.listAllLocations("1");
 		Assert.assertNotNull(response);
 	}
-	
-	@Autowired
-	SFMovieRepository movieRepo;
-	
-	@Autowired
-	SFMovieTitleRepository movieTitleRepo;
-	
-	@Test
-	public void testMovieTitleSearch() {
-		List<SFMovieTitle> movieTitles = movieTitleRepo.findByTitleContainingIgnoreCase("8");
-		for (SFMovieTitle sfMovieTitle : movieTitles) {
-			System.out.println(sfMovieTitle.getTitle());
-		}
-		Assert.assertTrue(movieTitles.size() > 0);
-	}
-	
 }
