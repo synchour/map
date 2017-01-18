@@ -31,9 +31,7 @@ public class SFMovie {
 	private String formattedAddress;
 	
 	public void updateGeoLocation() {
-		if (this.geoLocation == null) {
-			this.geoLocation = new Point(latitude, longitude);
-		}
+		this.geoLocation = new Point(latitude, longitude);
 	}
 	
 	public String getTitle() {

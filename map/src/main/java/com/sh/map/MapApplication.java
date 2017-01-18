@@ -6,7 +6,7 @@ import org.springframework.core.env.AbstractEnvironment;
 import org.springframework.util.StringUtils;
 
 @SpringBootApplication
-public class MapApplication {
+public class MapApplication {	
 
 	public static void main(String[] args) {
 		
