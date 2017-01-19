@@ -1,0 +1,5 @@
+rm -fr static
+mv public.build public
+npm run build
+mv public public.build
+mv build static
