@@ -6,8 +6,6 @@ const middleWare = applyMiddleware(thunk, logger());
 
 const reducer = function(state, action) {
     switch (action.type) {
-        case "REFRESH":
-            return action.payload;
         case "MOVIE_SELECTED":
             return action.payload;
         default:

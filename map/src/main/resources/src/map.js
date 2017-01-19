@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import uuid from 'uuid';
-import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
+import { Gmaps, Marker, InfoWindow } from 'react-gmaps';
 
 class Map extends Component {
 
