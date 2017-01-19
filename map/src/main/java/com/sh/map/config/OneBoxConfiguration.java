@@ -1,4 +1,4 @@
-package com.sh.map;
+package com.sh.map.config;
 
 import java.io.InputStream;
 import java.util.List;
@@ -17,10 +17,10 @@ import com.sh.map.preprocess.SFMovieCSVUtil;
 import com.sh.map.repository.MovieServiceDataAccess;
 
 @Configuration
-@Profile("dev")
-public class DevConfiguration {
+@Profile("onebox")
+public class OneBoxConfiguration {
 	
-	private static Logger logger = LoggerFactory.getLogger(DevConfiguration.class);
+	private static Logger logger = LoggerFactory.getLogger(OneBoxConfiguration.class);
 	
 	@Autowired
 	ResourceLoader loader;
@@ -31,8 +31,8 @@ public class DevConfiguration {
 	@Bean
 	CommandLineRunner initData() {
 		return args -> {
-			logger.info("loading data ");
-			InputStream stream = loader.getResource("classpath:SF_Processed_Small.csv").getInputStream();
+			logger.info("loading data with full dataset ");
+			InputStream stream = loader.getResource("classpath:SF_Processed.csv").getInputStream();
 			List<SFMovie> moviesLoaded = SFMovieCSVUtil.readObjects(stream);
 			logger.info(moviesLoaded.size() + " entities loaded, saving to repo");
 			

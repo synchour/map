@@ -11,6 +11,7 @@ public class MapApplication {
 	public static void main(String[] args) {
 		
 		String profileName = System.getenv("MAP_PROFILE");
+		System.out.println("Profile " + profileName);
 		if (StringUtils.isEmpty(profileName)) {
 			profileName = "dev";
 		}
