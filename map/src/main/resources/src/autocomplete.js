@@ -19,7 +19,7 @@ const AutoComplete = React.createClass({
 			return;
 		}
 
-		fetch(`http://localhost:8000/sfmovie/titleLocations?title=${value.title}`)
+		fetch(`/sfmovie/titleLocations?title=${value.title}`)
 		.then((response) => response.json())
 		.then((json) => {
 			store.dispatch({
@@ -38,7 +38,7 @@ const AutoComplete = React.createClass({
 			return Promise.resolve({ options: [] });
 		}
 
-		return fetch(`http://localhost:8000/sfmovie/titles?searchTerm=${input}`)
+		return fetch(`/sfmovie/titles?searchTerm=${input}`)
 		.then((response) => response.json())
 		.then((json) => {
 			console.log("options updated")
