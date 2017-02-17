@@ -20,4 +20,6 @@ COPY /map/src /map/src
 WORKDIR /map
 RUN ./build.sh
 
+#EXPOSE 8000
+
 CMD ["java", "-jar", "./target/map-0.0.1-SNAPSHOT.jar"]

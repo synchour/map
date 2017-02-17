@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+   db:
+     image: mongo
+
+   service:
+     build: .
+     ports:
+       - "8000"
+     links: 
+       - db
